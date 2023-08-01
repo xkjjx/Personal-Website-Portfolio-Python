@@ -6,14 +6,14 @@ def encloseTags(tag,text,*attributes):
 
 
 class Project():
-    def __init__(self,name,description,shortDescription=None):
+    def __init__(self,name,description,shortDescription=None,skills=[]):
         self.name = name
         if shortDescription == None:
             self.shortDescription = description
         else:
             self.shortDescription = shortDescription
         self.description = description
-
+        self.skills = skills
 
     def __str__(self):
         return "\n".join(["Name: " + self.name,"Short description: " + self.shortDescription,"Description: " + self.description])
@@ -26,9 +26,15 @@ class Project():
             file[3] = '<img id="imgmain" src="Projects/{}/images/main.png">'.format(self.name)
             content = ""
             d = self.description.split("\n")
+
             for line in d:
                 content += encloseTags("p",line)
-            file[5] = content
+
+            file[4] = content
+
+            for skill in self.skills:
+                file[6] += encloseTags("li",skill)
+
             outP = "\n".join(file)
         return outP
     def createCard(self):

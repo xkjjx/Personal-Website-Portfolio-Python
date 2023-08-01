@@ -114,3 +114,15 @@ footer p {
     height: auto;
     align: center;
 }
+
+#projectAbout p{
+    text-align: left;
+}
+
+h3{
+    text-align: left;
+}
+
+#projectAbout ul{
+    text-align: left;
+}

@@ -6,14 +6,18 @@ def readProjects():
     ProjectsList = []
     for project in projects:
         name = project
-
+        skills = []
         with open("Projects/{}/description.txt".format(name)) as d:
-            description = d.readlines()[0]
+            description = d.read()
 
         with open("Projects/{}/shortDescription.txt".format(name)) as d:
-            shortDescription = d.read()
+            shortDescription = d.readlines()[0]
 
-        p = Project(name,description,shortDescription)
+        with open("Projects/{}/skills.txt".format(name)) as s:
+            for line in s.readlines():
+                skills.append(line.strip())
+
+        p = Project(name,description,shortDescription,skills)
         ProjectsList.append(p)
     return ProjectsList
 
