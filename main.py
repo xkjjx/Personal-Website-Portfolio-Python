@@ -43,7 +43,8 @@ def fullUpdate():
     createIndex(projectList)
     createProjectPages(projectList)
 
-fullUpdate()
+if __name__ == "__main__":
+    fullUpdate()
 
 
 
