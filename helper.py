@@ -6,7 +6,7 @@ def encloseTags(tag,text,*attributes):
 
 
 class Project():
-    def __init__(self,name,description,shortDescription=None,skills=[]):
+    def __init__(self,name,description,shortDescription=None,skills=[],git=None):
         self.name = name
         if shortDescription == None:
             self.shortDescription = description
@@ -14,6 +14,7 @@ class Project():
             self.shortDescription = shortDescription
         self.description = description
         self.skills = skills
+        self.git = git
 
     def __str__(self):
         return "\n".join(["Name: " + self.name,"Short description: " + self.shortDescription,"Description: " + self.description])
@@ -29,6 +30,8 @@ class Project():
 
             for line in d:
                 content += encloseTags("p",line)
+
+            content += encloseTags("p",encloseTags("a","Link to GitHub",["href",self.git]))
 
             file[4] = content
 

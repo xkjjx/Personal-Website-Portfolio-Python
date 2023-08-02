@@ -17,7 +17,10 @@ def readProjects():
             for line in s.readlines():
                 skills.append(line.strip())
 
-        p = Project(name,description,shortDescription,skills)
+        with open("Projects/{}/github.txt".format(name)) as g:
+            git = g.readlines()[0].strip()
+
+        p = Project(name,description,shortDescription,skills,git)
         ProjectsList.append(p)
     return ProjectsList
 
@@ -36,9 +39,15 @@ def createIndex(projectList):
     with open("htmlOut/index.html", "w") as file:
         file.write("\n".join(data))
 
+    with open("index.html", "w") as file:
+        file.write("\n".join(data))
+
 def createProjectPages(projectList):
     for p in projectList:
         with open("htmlOut/{}.html".format(p.name), "w") as file:
+            file.write(p.createPage())
+
+        with open("{}.html".format(p.name), "w") as file:
             file.write(p.createPage())
 
 def fullUpdate():
