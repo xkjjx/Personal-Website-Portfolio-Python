@@ -1,0 +1,7 @@
+PIL
+Urllib
+Twitter API
+Instagram API
+Open Weather API
+Automatic Emails
+Bash

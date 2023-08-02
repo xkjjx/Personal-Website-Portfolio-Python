@@ -1,0 +1,1 @@
+This weather bot automatically gathers weather information about College Station, Texas, creates an image and text with the data, and posts them to Twitter and Instagram! It is run on my personal raspberry pi 24/7, posting intermittently without any user input.

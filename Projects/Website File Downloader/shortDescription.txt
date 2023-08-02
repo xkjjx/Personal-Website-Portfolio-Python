@@ -1,0 +1,1 @@
+The website file downloader is a simple project that I built out of necessity. Browsing through my professor's class pages, I found that a single page had many notes and resources that would be too tedious to download on their own. With this app, this process is automated, and the downloads are all stored neatly in a separate folder in the User's Downloads folder.
