@@ -25,17 +25,20 @@ def createIndex(projectList):
     with open("indexBase.html", "r") as file:
         data = file.readlines()
 
-    data[1] = ""
+    with open("about.txt","r") as file:
+        data[1] = "".join([encloseTags("p",x) for x in file.readlines()])
+
+    data[3] = ""
 
     for p in projectList:
-        data[1] += p.createCard()
+        data[3] += p.createCard()
 
-    with open("index.html", "w") as file:
+    with open("htmlOut/index.html", "w") as file:
         file.write("\n".join(data))
 
 def createProjectPages(projectList):
     for p in projectList:
-        with open("{}.html".format(p.name), "w") as file:
+        with open("htmlOut/{}.html".format(p.name), "w") as file:
             file.write(p.createPage())
 
 def fullUpdate():
