@@ -23,7 +23,7 @@ class Project():
     def createPage(self):
         with open("base.html","r") as file:
             file = file.readlines()
-            file[1] = self.name
+            file[1] = self.name.replace("-"," ")
             file[3] = '<img id="imgmain" src="Projects/{}/images/main.png">'.format(self.name)
             content = ""
             d = self.description.split("\n")
@@ -41,7 +41,7 @@ class Project():
             outP = "\n".join(file)
         return outP
     def createCard(self):
-        outP = encloseTags("div",'<img src="Projects/{0}/images/main.png" alt = "{0}">'.format(self.name) + encloseTags("h3",self.name) + encloseTags("p",self.shortDescription) + encloseTags("a","View project",["href","{}.html".format(self.name)]),["class","project-card"])
+        outP = encloseTags("div",'<img src="Projects/{0}/images/main.png" alt = "{0}">'.format(self.name.replace("-"," ")) + encloseTags("h3",self.name.replace("-"," ")) + encloseTags("p",self.shortDescription) + encloseTags("a","View project",["href","{}.html".format(self.name.replace("-"," "))]),["class","project-card"])
         return outP
 
 

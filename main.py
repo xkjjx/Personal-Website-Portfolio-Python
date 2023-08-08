@@ -36,7 +36,7 @@ def createIndex(projectList):
     for p in projectList:
         data[3] += p.createCard()
 
-    with open("htmlOut/index.html", "w") as file:
+    with open("staticOut/index.html", "w") as file:
         file.write("\n".join(data))
 
     with open("index.html", "w") as file:
@@ -44,7 +44,7 @@ def createIndex(projectList):
 
 def createProjectPages(projectList):
     for p in projectList:
-        with open("htmlOut/{}.html".format(p.name), "w") as file:
+        with open("staticOut/{}.html".format(p.name), "w") as file:
             file.write(p.createPage())
 
         with open("{}.html".format(p.name), "w") as file:
